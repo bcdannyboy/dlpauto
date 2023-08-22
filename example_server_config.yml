@@ -1,0 +1,10 @@
+server:
+  dns: true
+  graphql: true
+  grpc: true
+  http: true
+  https: true
+  icmp: true
+  tcp: true
+  udp: true
+  websocket: true

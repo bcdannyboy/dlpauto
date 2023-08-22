@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+service ExfilService {
+  rpc SendExfilData (ExfilRequest) returns (ExfilReply) {}
+}
+
+message ExfilRequest {
+  string data = 1;
+}
+
+message ExfilReply {
+  string message = 1;
+}

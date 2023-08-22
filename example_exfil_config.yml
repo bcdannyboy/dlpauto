@@ -1,0 +1,108 @@
+rawdata:
+  fakecc: 10
+  facecc_justnumber: false # if true, will only generate numbers for cc, won't include dashes
+  fakessn: 10
+  fakessn_seperator: '-'
+  fakebank: 10
+  fakebank_type: 'aba' # aba, bban, iban, swift8, swift11, swift11primary
+
+files:
+  word: true
+  excel: true
+  powerpoint: true
+  visio: true
+  eml: true
+  eml_attachment: true # if false, will not include eml file with embedded attachment
+  txt: true
+  csv: true
+  badformat: true
+  json: true
+  yaml: true
+  pdf: true
+  xml: true
+  html: true
+  zip: true
+  protectedzip: true
+  embeddedzip: true
+
+encoding:
+  xor:
+    key: "0123456789abcdef" # if not present and xor is true, random key will be generated
+  b64: true
+  url: true
+  hex: true
+  rot13: true
+  ascii: true
+  bin: true
+  caesar:
+    shift: 13 # if not present and caesar is true, 3 shift will be chosen
+  reverse: true
+  aes:
+    key: "0123456789abcdef" # KEY MUST BE 16 CHARACTERS. if not present and aes is true, random key will be generated.
+  fernet:
+    key: "0123456789abcdef0123456789abcdef" # if not present and fernet is true, random key will be generated.
+  base32: true
+  base16: true
+  zlib: true
+
+exfil:
+  dns:
+    port: 54
+    server: "127.0.0.1"
+    location: "*" # A, AAAA, TXT, * (all)
+  email:
+    server: ""
+    port: 587
+    to: ""
+    from: ""
+    from_password: "" # optional, if not present or empty no authentication will be attempted
+    location: "*" # subject, attachment, body, * (all)
+    tls: true # if true will try to log into smtp server over tls
+  ftp:
+    server: ""
+    directory: ""
+    username: "" # optional, if not present or empty no authentication will be attempted
+    password: "" # optional, if not present or empty no authentication will be attempted
+    tls: false # if true will try to log into ftp server over tls
+  git:
+    token: "" # git personal access token
+    owner: "" # repo owner
+    repo: "" # repo name
+    path: "" # path to the file in the repository
+  graphql:
+    url: ""
+  websockets:
+    url: ""
+  grpc:
+    server: ""
+    port: ""
+  http:
+    url: "localhost"
+    method: "*" # GET, POST, PUT, PATCH, DELETE, HEAD, OPTIONS, * (All)
+    location: "*" # urlparam (url parameter), urlquery (url query) variable, header, body, cookies, * (All)
+    http_port: 8000
+    https_port: 8443
+  icmp:
+    ip: "127.0.0.1"
+  rpc:
+    server: ""
+    port: ""
+  ssh:
+    server: ""
+    port: ""
+    username: ""
+    password: ""
+  tcp:
+    ip: "localhost"
+    port: "9000"
+  udp:
+    ip: "127.0.0.1"
+    port: 9001
+  s3:
+    bucket: ""
+    # authentication can be done with keys or creds or neither for anonymous access. don't do both.
+    access_key_id: "" # optional
+    secret_access_token: "" # optional
+    session_token: "" # optional
+    username: "" # optional
+    password: "" # optional
